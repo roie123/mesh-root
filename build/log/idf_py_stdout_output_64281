@@ -1,0 +1,420 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6276
+load:0x40078000,len:15748
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3860
+entry 0x4008063c
+[0;32mI (31) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time May 21 2025 18:13:16[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.1[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (60) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (73) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=21a34h (137780) map[0m
+[0;32mI (137) esp_image: segment 1: paddr=00031a5c vaddr=3ff80000 size=0001ch (    28) load[0m
+[0;32mI (137) esp_image: segment 2: paddr=00031a80 vaddr=3ffb0000 size=03ec0h ( 16064) load[0m
+[0;32mI (147) esp_image: segment 3: paddr=00035948 vaddr=40080000 size=0a6d0h ( 42704) load[0m
+[0;32mI (165) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=a43c8h (672712) map[0m
+[0;32mI (395) esp_image: segment 5: paddr=000e43f0 vaddr=4008a6d0 size=0b814h ( 47124) load[0m
+[0;32mI (424) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (424) boot: Disabling RNG early entropy source...[0m
+[0;32mI (435) cpu_start: Multicore app[0m
+[0;32mI (443) cpu_start: Pro cpu start user code[0m
+[0;32mI (443) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (443) app_init: Application information:[0m
+[0;32mI (443) app_init: Project name:     internal_communication[0m
+[0;32mI (448) app_init: App version:      1[0m
+[0;32mI (452) app_init: Compile time:     May 21 2025 18:24:02[0m
+[0;32mI (457) app_init: ELF file SHA256:  42edd8a36...[0m
+[0;32mI (461) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (465) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (469) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (473) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (477) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (483) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (488) heap_init: At 3FFB9D48 len 000262B8 (152 KiB): DRAM[0m
+[0;32mI (493) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (498) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (504) heap_init: At 40095EE4 len 0000A11C (40 KiB): IRAM[0m
+[0;32mI (511) spi_flash: detected chip: generic[0m
+[0;32mI (513) spi_flash: flash io: dio[0m
+[0;33mW (516) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (529) main_task: Started on CPU0[0m
+[0;32mI (539) main_task: Calling app_main()[0m
+[0;32mI (579) wifi:wifi driver task: 3ffc2078, prio:23, stack:6656, core=0[0m
+[0;32mI (589) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (589) wifi:wifi certification version: v7.0[0m
+[0;32mI (589) wifi:config NVS flash: enabled[0m
+[0;32mI (589) wifi:config nano formatting: disabled[0m
+[0;32mI (599) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (599) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (609) wifi:Init management short buffer num: 32[0m
+[0;32mI (609) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (619) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (619) wifi:Init static rx buffer num: 10[0m
+[0;32mI (619) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (629) wifi_init: rx ba win: 6[0m
+[0;32mI (629) wifi_init: accept mbox: 6[0m
+[0;32mI (629) wifi_init: tcpip mbox: 32[0m
+[0;32mI (639) wifi_init: udp mbox: 6[0m
+[0;32mI (639) wifi_init: tcp mbox: 6[0m
+[0;32mI (639) wifi_init: tcp tx win: 5760[0m
+[0;32mI (639) wifi_init: tcp rx win: 5760[0m
+[0;32mI (649) wifi_init: tcp mss: 1440[0m
+[0;32mI (649) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (649) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (659) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (739) wifi:mode : sta (38:18:2b:30:c6:7c) + softAP (38:18:2b:30:c6:7d)[0m
+[0;32mI (739) wifi:enable tsf[0m
+[0;32mI (749) wifi:Total power save buffer number: 16[0m
+[0;32mI (749) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (749) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (759) mesh: <nvs>read layer:0, err:0x1102[0m
+[0;32mI (759) mesh: <nvs>read assoc:0, err:0x1102[0m
+[0;32mI (759) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (779) wifi:Total power save buffer number: 16[0m
+[0;32mI (1029) mesh: [IO]disable self-organizing<reconnect>[0m
+[0;32mI (1039) mesh: [CONFIG]connect to router:12345678, 00:00:00:00:00:00[0m
+[0;32mI (1039) mesh_main: <MESH_EVENT_MESH_STARTED>ID:77:77:77:77:77:77[0m
+[0;32mI (1049) mesh_main: mesh starts successfully, heap:167280, root fixed<0>(tree), ps:1[0m
+[0;32mI (1049) main_task: Returned from app_main()[0m
+[0;32mI (3889) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (6739) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (9579) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (12429) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (15269) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (18119) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (20959) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (23809) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (26649) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (29499) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (32339) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (35179) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (38029) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (40869) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (43719) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (46559) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (46699) wifi:new:<1,1>, old:<1,1>, ap:<1,1>, sta:<0,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (46699) wifi:station: 00:4b:12:3c:04:7c join, AID=1, bgn, 40U[0m
+[0;32mI (46709) mesh_main: <MESH_EVENT_PS_CHILD_DUTY>cidx:0, 00:4b:12:3c:04:7c, duty:10[0m
+[0;33mW (46849) mesh_main: <MESH_EVENT_ROUTING_TABLE_ADD>add 1, new:2, layer:1[0m
+[0;32mI (46849) mesh_main: <MESH_EVENT_CHILD_CONNECTED>aid:1, 00:4b:12:3c:04:7c[0m
+[0;32mI (49409) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (52259) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (55099) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (57939) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (60789) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (63629) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (66479) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (69329) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (72169) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (75019) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (77859) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (80699) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (83549) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (86399) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (89239) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (92089) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (94929) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (97769) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (100619) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (103459) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (106309) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (109159) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (111999) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (114849) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (117689) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (120529) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (123389) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (126229) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (129069) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (131919) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (134759) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (137609) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (140449) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (143299) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (146139) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (146849) mesh: [scan]new scanning time:600ms, beacon interval:300ms[0m
+[0;32mI (148989) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (151829) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (154669) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (157519) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (160359) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (163209) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (166049) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (168899) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (171739) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (174589) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (177429) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (180279) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (183119) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (185969) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (188809) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (191649) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (194499) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (197339) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (200189) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (203029) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (205869) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (208719) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (211559) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (214399) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (217249) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (220089) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (222939) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (225779) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (228619) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (231469) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (234309) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (237149) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (239999) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (242839) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (245679) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (248529) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (251369) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (254209) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (257059) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (259899) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (262749) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (265589) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (268439) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (271279) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (274129) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (276979) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (279819) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (282659) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (285509) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (288349) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (291199) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (294039) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (296879) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (299729) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (302569) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (305419) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (308259) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (311099) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (313949) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (316789) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (319629) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (322479) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (325319) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (328159) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (331009) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (333849) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (336689) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (339539) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (342379) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (345219) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (348069) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (350909) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (353749) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (356599) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (359439) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (362289) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (365129) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (367979) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (370829) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (373669) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (376509) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (379359) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (382199) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (385039) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (387889) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (390729) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (393569) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (396419) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (399259) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (402109) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (404949) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (407789) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (410639) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (413479) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (416319) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (419169) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (422009) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (424859) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (427699) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (430539) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (433389) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (436229) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (439069) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (441919) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (444769) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (447609) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (450449) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (453299) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (456139) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (458989) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (461829) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (464679) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (467519) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (470369) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (473209) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (476049) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (478899) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (481739) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (484589) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (487429) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (490269) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (493119) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (495959) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (498799) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (501649) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (504489) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (507329) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (510179) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (513019) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (515859) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (518709) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (521549) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (524399) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (527239) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (530079) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (532929) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (535769) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (538619) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (541469) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (544309) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (547149) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (549999) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (552839) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (555689) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (558529) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (561369) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (564219) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (567059) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (569899) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (572749) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (575589) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (578429) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (581279) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (584119) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (586969) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (589809) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (592649) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (595499) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (598339) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (601189) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (604029) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (606869) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (609719) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (612559) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (615399) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (618249) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (621089) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (623929) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (626779) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (629619) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (632469) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (635309) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (638149) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (640999) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (643839) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (646689) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (649529) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (652369) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (655219) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (658059) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (660909) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (663749) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (666589) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (669439) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (672279) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (675119) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (677969) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (680809) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (683659) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (686499) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (689339) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (692189) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (695029) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (697879) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (700719) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (703559) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (706409) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (709249) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (712089) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (714939) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (717779) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (720629) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (723469) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (726319) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (729159) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (732009) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (734849) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (737699) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (740539) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (743379) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (746229) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (749069) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (751909) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (754759) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (757599) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (760449) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (763289) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (766139) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (768979) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (771819) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (774669) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (777509) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (780349) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (783199) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (786039) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (788879) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (791729) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (794569) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (797409) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (800259) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (803099) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (805949) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (808789) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (811629) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (814469) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (817319) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (820159) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (823009) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (825859) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (828699) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (831549) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (834389) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (837229) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (840079) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (842919) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (845769) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (848609) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (851449) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (854299) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (857139) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (859979) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (862829) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (865669) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (868519) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (871359) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (874199) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (877039) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (879889) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (882729) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (885579) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (888419) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
+[0;32mI (891259) mesh: [wifi]disconnected reason:201(), continuous:5/max:12, root, vote(,)<><>[0m
+[0;32mI (894109) mesh: [wifi]disconnected reason:201(), continuous:6/max:12, root, vote(,)<><>[0m
+[0;32mI (896949) mesh: [wifi]disconnected reason:201(), continuous:0/max:12, root, vote(,)<><>[0m
+[0;32mI (899789) mesh: [wifi]disconnected reason:201(), continuous:1/max:12, root, vote(,)<><>[0m
+[0;32mI (902639) mesh: [wifi]disconnected reason:201(), continuous:2/max:12, root, vote(,)<><>[0m
+[0;32mI (905479) mesh: [wifi]disconnected reason:201(), continuous:3/max:12, root, vote(,)<><>[0m
+[0;32mI (908319) mesh: [wifi]disconnected reason:201(), continuous:4/max:12, root, vote(,)<><>[0m
