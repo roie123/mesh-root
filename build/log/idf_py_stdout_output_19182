@@ -1,8 +1,0 @@
-[0/1] Re-running CMake...
--- git rev-parse returned 'fatal: not a git repository (or any parent up to mount point /)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).'
--- Could not use 'git describe' to determine PROJECT_VER.
--- Building ESP-IDF components for target esp32
--- Project sdkconfig file /home/royivri/mesh_test/mesh_root/sdkconfig
-Loading defaults file /home/royivri/mesh_test/mesh_root/sdkconfig.defaults...
--- Compiler supported targets: xtensa-esp-elf

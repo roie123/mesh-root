@@ -16,6 +16,7 @@
 #include "esp_mesh_internal.h"
 #include "mesh_light.h"
 #include "nvs_flash.h"
+#include "driver/gpio.h"
 
 /*******************************************************
  *                Macros
@@ -26,6 +27,14 @@
  *******************************************************/
 #define RX_SIZE          (1500)
 #define TX_SIZE          (1460)
+
+/**************************************************/
+#define FIRST_LED_GPIO    13
+#define SECOND_LED_GPIO    12
+#define THIRD_LED_GPIO    14
+
+/**************************************************/
+
 
 /*******************************************************
  *                Variable Definitions
@@ -39,6 +48,7 @@ static bool is_mesh_connected = false;
 static mesh_addr_t mesh_parent_addr;
 static int mesh_layer = -1;
 static esp_netif_t *netif_sta = NULL;
+
 
 mesh_light_ctl_t light_on = {
     .cmd = MESH_CONTROL_CMD,
@@ -57,7 +67,8 @@ mesh_light_ctl_t light_off = {
 /*******************************************************
  *                Function Declarations
  *******************************************************/
-
+void blink_task(void *pvParameters);
+void blink_once(gpio_num_t pin, int delay_ms);
 /*******************************************************
  *                Function Definitions
  *******************************************************/
@@ -383,8 +394,134 @@ void ip_event_handler(void *arg, esp_event_base_t event_base,
     ESP_LOGI(MESH_TAG, "<IP_EVENT_STA_GOT_IP>IP:" IPSTR, IP2STR(&event->ip_info.ip));
 }
 
+/****************************************************/
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+static const char *TAG = "mesh_root";
+
+// Call this in app_main or after mesh startup
+void mesh_root_receive_task(void *arg) {
+    mesh_addr_t from;
+    mesh_data_t data;
+    int flag = 0;
+    esp_err_t err;
+
+    uint8_t rx_buf[256];
+    data.data = rx_buf;
+    data.size = sizeof(rx_buf);
+    while (true) {
+        err = esp_mesh_recv(&from, &data, portMAX_DELAY, &flag, NULL, 0);
+        if (err == ESP_OK) {
+            // ESP_LOGI("ROOT_RECV", "Received from: "MACSTR", data: %.*s",
+            //          MAC2STR(from.addr), data.size, data.data);
+            printf("TURN light number %.*s\n", data.size, (char *) data.data);
+            printf("DATA |%c\n|",data.data[0]);
+            switch (data.data[0]) {
+                case '2' :{
+                    blink_once(FIRST_LED_GPIO,500);
+                    break;
+                }
+                    case '3' : {
+                    blink_once(SECOND_LED_GPIO,500);
+                    break;
+                }
+                case '4': {
+                    blink_once(THIRD_LED_GPIO,500);
+                    break;
+                }
+            }
+
+            // free(data.data     );
+        } else {
+            ESP_LOGE("ROOT_RECV", "Receive error: %s", esp_err_to_name(err));
+        }
+    }
+}
+
+void blink_task(void *pvParameters) {
+    gpio_set_direction(FIRST_LED_GPIO, GPIO_MODE_OUTPUT);
+    printf("Blink task started\n");
+    while (1) {
+        gpio_set_level(FIRST_LED_GPIO, 1);
+        vTaskDelay(pdMS_TO_TICKS(300));
+        gpio_set_level(FIRST_LED_GPIO, 0);
+        vTaskDelay(pdMS_TO_TICKS(300));
+    }
+}
+
+void blink_once(gpio_num_t pin, int delay_ms) {
+    gpio_reset_pin(pin);
+    gpio_set_direction(pin, GPIO_MODE_OUTPUT);
+
+    gpio_set_level(pin, 1); // LED ON
+    vTaskDelay(pdMS_TO_TICKS(delay_ms));
+
+    gpio_set_level(pin, 0); // LED OFF
+    vTaskDelay(pdMS_TO_TICKS(delay_ms));
+}
+
+
+/****************************************************/
+/****************************************************/
+#include "esp_mesh.h"
+#include "esp_log.h"
+
+void print_mesh_topology() {
+    if (!esp_mesh_is_root()) {
+        ESP_LOGW(TAG, "Not the root. Skipping topology print.");
+        return;
+    }
+
+    int route_table_size = esp_mesh_get_routing_table_size();
+    if (route_table_size <= 0) {
+        ESP_LOGI(TAG, "No nodes in routing table.");
+        return;
+    }
+
+    mesh_addr_t *route_table = malloc(sizeof(mesh_addr_t) * route_table_size);
+    if (!route_table) {
+        ESP_LOGE(TAG, "Failed to allocate memory for routing table");
+        return;
+    }
+
+    int out_size = 0;
+    esp_err_t err = esp_mesh_get_routing_table(route_table, route_table_size * sizeof(mesh_addr_t), &out_size);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to get routing table: %s", esp_err_to_name(err));
+        free(route_table);
+        return;
+    }
+
+    ESP_LOGI(TAG, "Mesh Topology: %d node(s)", out_size);
+    for (int i = 0; i < out_size; i++) {
+        ESP_LOGI(TAG, "Node %d MAC: " MACSTR, i + 1, MAC2STR(route_table[i].addr));
+    }
+
+    free(route_table);
+}
+
+void topology_task(void *arg) {
+    while (true) {
+        print_mesh_topology();
+        vTaskDelay(pdMS_TO_TICKS(10000)); // Every 10 seconds
+    }
+}
+
+/****************************************************/
+
+
 void app_main(void) {
-    esp_log_level_set("mesh", ESP_LOG_NONE);  // suppress info logs
+    gpio_reset_pin(13);
+    gpio_reset_pin(12);
+    gpio_reset_pin(14);
+    gpio_set_direction(13, GPIO_MODE_OUTPUT);
+    gpio_set_direction(12, GPIO_MODE_OUTPUT);
+    gpio_set_direction(14, GPIO_MODE_OUTPUT);
+
+
+    esp_log_level_set("mesh", ESP_LOG_NONE); // suppress info logs
     esp_log_level_set("wifi", ESP_LOG_NONE);
     ESP_ERROR_CHECK(mesh_light_init());
     ESP_ERROR_CHECK(nvs_flash_init());
@@ -433,8 +570,6 @@ void app_main(void) {
            strlen(CONFIG_MESH_ROUTER_PASSWD));
 
 
-
-
     /* mesh softAP */
     ESP_ERROR_CHECK(esp_mesh_set_ap_authmode(CONFIG_MESH_AP_AUTHMODE));
     cfg.mesh_ap.max_connection = CONFIG_MESH_AP_CONNECTIONS;
@@ -448,9 +583,15 @@ void app_main(void) {
     esp_mesh_set_type(MESH_ROOT);
 
 
-
     /* mesh start */
     ESP_ERROR_CHECK(esp_mesh_start());
+    /****/
+
+    xTaskCreate(mesh_root_receive_task, "mesh_rx", 4096, NULL, 5, NULL);
+    xTaskCreate(topology_task, "topology_task", 4096, NULL, 5, NULL);
+    /****/
+
+
 #ifdef CONFIG_MESH_ENABLE_PS
     /* set the device active duty cycle. (default:10, MESH_PS_DEVICE_DUTY_REQUEST) */
     ESP_ERROR_CHECK(esp_mesh_set_active_duty_cycle(CONFIG_MESH_PS_DEV_DUTY, CONFIG_MESH_PS_DEV_DUTY_TYPE));
