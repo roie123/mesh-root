@@ -582,7 +582,7 @@ void app_main(void) {
     esp_mesh_fix_root(true);
     esp_mesh_set_type(MESH_ROOT);
 
-
+    esp_mesh_set_ap_connections(1); //TODO : TEST
     /* mesh start */
     ESP_ERROR_CHECK(esp_mesh_start());
     /****/

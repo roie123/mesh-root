@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "internal_communication",
-    "project_version":    "93c8cd4-dirty",
+    "project_version":    "daf7a85-dirty",
     "project_path":       "/home/royivri/mesh_test/mesh_root",
     "idf_path":           "/home/royivri/esp/esp-idf",
     "build_dir":          "/home/royivri/mesh_test/mesh_root/build",
