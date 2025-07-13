@@ -48,6 +48,7 @@ static bool is_mesh_connected = false;
 static mesh_addr_t mesh_parent_addr;
 static int mesh_layer = -1;
 static esp_netif_t *netif_sta = NULL;
+static const uint8_t ALLOWED_CHILD_MAC[6] = { 0x00, 0x4B, 0x12, 0x3C, 0x04, 0x7C };
 
 
 mesh_light_ctl_t light_on = {
@@ -209,9 +210,20 @@ void mesh_event_handler(void *arg, esp_event_base_t event_base,
         break;
         case MESH_EVENT_CHILD_CONNECTED: {
             mesh_event_child_connected_t *child_connected = (mesh_event_child_connected_t *) event_data;
-            ESP_LOGI(MESH_TAG, "<MESH_EVENT_CHILD_CONNECTED>aid:%d, "MACSTR"",
-                     child_connected->aid,
-                     MAC2STR(child_connected->mac));
+            ESP_LOGI(MESH_TAG, "Child trying to connect: " MACSTR, MAC2STR(child_connected->mac));
+
+
+
+            if (memcmp(child_connected->mac, ALLOWED_CHILD_MAC, 6) != 0) {
+                ESP_LOGW(MESH_TAG, "❌ Unauthorized child rejected: " MACSTR, MAC2STR(child_connected->mac));
+
+                // No official API to disconnect the child immediately,
+                // but you can stop mesh or reboot to remove unapproved ones,
+                // or ignore messages from unknown MACs at app level.
+            } else {
+                ESP_LOGI(MESH_TAG, "✅ Authorized child: " MACSTR, MAC2STR(child_connected->mac));
+            }
+
         }
         break;
         case MESH_EVENT_CHILD_DISCONNECTED: {
